@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYnJvbnplR29sZCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiNkYWE1MjAiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSI1MCUiIHN0eWxlPSJzdG9wLWNvbG9yOiNjZDdmMzIiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojYjg4NjBiIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogIDwvZGVmcz4KICA8Y2lyY2xlIGN4PSI1MCIgY3k9IjUwIiByPSI0OCIgZmlsbD0iIzBhMWYxYSIvPgogIDxjaXJjbGUgY3g9IjUwIiBjeT0iNTAiIHI9IjQ1IiBmaWxsPSJub25lIiBzdHJva2U9InVybCgjYnJvbnplR29sZCkiIHN0cm9rZS13aWR0aD0iMiIvPgogIDx0ZXh0IHg9IjUwIiB5PSI2OCIgZm9udC1zaXplPSI1NSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+8J+mjjwvdGV4dD4KPC9zdmc+Cg==">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy | No Art Gallery</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Raleway:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --jungle-deep: #0a1f1a;
+            --jungle-dark: #0d2520;
+            --jungle-mid: #1a4035;
+            --jungle-light: #2d6a55;
+            --gold-dark: #b8860b;
+            --gold-light: #ffd700;
+            --cream: #f5f5dc;
+            --bronze: #cd7f32;
+            --bronze-light: #daa520;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { 
+            font-family: 'Raleway', sans-serif; 
+            color: var(--cream); 
+            background: linear-gradient(180deg, #0a1f1a 0%, #0d2520 50%, #0a1f1a 100%);
+            min-height: 100vh;
+            line-height: 1.8;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+        
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: 'Cinzel', serif;
+            font-size: 0.8rem;
+            letter-spacing: 0.1em;
+            color: var(--bronze-light);
+            text-decoration: none;
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+        }
+        .back-link:hover { color: var(--gold-light); }
+        
+        .page-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(205, 127, 50, 0.3);
+        }
+        .page-icon { font-size: 3rem; margin-bottom: 1rem; }
+        .page-title {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(1.8rem, 5vw, 2.5rem);
+            letter-spacing: 0.15em;
+            background: linear-gradient(135deg, var(--gold-light), var(--bronze-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+        .page-subtitle {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1rem;
+            font-style: italic;
+            color: rgba(245, 245, 220, 0.5);
+        }
+        .last-updated {
+            font-size: 0.75rem;
+            color: rgba(205, 127, 50, 0.6);
+            margin-top: 1rem;
+        }
+        
+        .content-section {
+            margin-bottom: 2.5rem;
+        }
+        .section-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.2rem;
+            letter-spacing: 0.1em;
+            color: var(--gold-light);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid rgba(205, 127, 50, 0.2);
+        }
+        .content-section p {
+            color: rgba(245, 245, 220, 0.8);
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+        .content-section ul {
+            list-style: none;
+            margin: 1rem 0;
+        }
+        .content-section li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.8rem;
+            color: rgba(245, 245, 220, 0.75);
+            font-size: 0.9rem;
+        }
+        .content-section li::before {
+            content: '🦎';
+            position: absolute;
+            left: 0;
+            font-size: 0.7rem;
+        }
+        
+        .highlight-box {
+            background: rgba(26, 64, 53, 0.3);
+            border: 1px solid rgba(205, 127, 50, 0.3);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        .highlight-box h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 1rem;
+            color: var(--bronze-light);
+            margin-bottom: 1rem;
+        }
+        
+        .contact-box {
+            background: rgba(26, 64, 53, 0.3);
+            border: 1px solid rgba(205, 127, 50, 0.3);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+        .contact-box h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 1rem;
+            color: var(--bronze-light);
+            margin-bottom: 1rem;
+        }
+        .contact-box a {
+            color: var(--gold-light);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .contact-box a:hover {
+            color: var(--gold-glow);
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+        }
+        
+        .footer-mini {
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid rgba(205, 127, 50, 0.2);
+            margin-top: 3rem;
+        }
+        .footer-mini a {
+            color: var(--bronze-light);
+            text-decoration: none;
+            font-family: 'Cinzel', serif;
+            font-size: 0.9rem;
+            letter-spacing: 0.15em;
+        }
+        .footer-mini a:hover { color: var(--gold-light); }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">← Back to Gallery</a>
+        
+        <header class="page-header">
+            <div class="page-icon">🔒</div>
+            <h1 class="page-title">Privacy Policy</h1>
+            <p class="page-subtitle">Your privacy matters to us</p>
+            <p class="last-updated">Last Updated: January 2025</p>
+        </header>
+        
+        <section class="content-section">
+            <h2 class="section-title">Introduction</h2>
+            <p>Welcome to No Art Gallery ("we," "our," or "us"). This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website noartgallery.com and its associated pages.</p>
+            <p>Please read this privacy policy carefully. If you do not agree with the terms of this privacy policy, please do not access the site.</p>
+        </section>
+        
+        <section class="content-section">
+            <h2 class="section-title">Information We Collect</h2>
+            <p>We may collect information about you in a variety of ways:</p>
+            
+            <div class="highlight-box">
+                <h3>📝 Personal Data You Provide</h3>
+                <ul>
+                    <li>Name and email address when you contact us</li>
+                    <li>Any information you provide through our contact form</li>
+                    <li>Communications you send to us</li>
+                </ul>
+            </div>
+            
+            <div class="highlight-box">
+                <h3>📊 Automatically Collected Data</h3>
+                <ul>
+                    <li>Browser type and version</li>
+                    <li>Operating system</li>
+                    <li>Pages visited and time spent</li>
+                    <li>Referring website address</li>
+                    <li>IP address (anonymized)</li>
+                </ul>
+            </div>
+        </section>
+        
+        <section class="content-section">
+            <h2 class="section-title">How We Use Your Information</h2>
+            <p>We use the information we collect for the following purposes:</p>
+            <ul>
+                <li>To respond to your inquiries and communications</li>
+                <li>To improve our website and user experience</li>
+                <li>To analyze usage patterns and optimize content</li>
+                <li>To protect against fraudulent or malicious activity</li>
+                <li>To comply with legal obligations</li>
+            </ul>
+        </section>
+        
+        <section class="content-section">
+            <h2 class="section-title">Cookies and Tracking</h2>
+            <p>We may use cookies and similar tracking technologies to track activity on our website and hold certain information. Cookies are files with a small amount of data which may include an anonymous unique identifier.</p>
+            <p>You can instruct your browser to refuse all cookies or to indicate when a cookie is being sent. However, if you do not accept cookies, you may not be able to use some portions of our website.</p>
+        </section>
+        
+        <section class="content-section">
+            <h2 class="section-title">Third-Party Services</h2>
+            <p>Our website may contain links to third-party websites and services that are not operated by us. We have no control over and assume no responsibility for the content, privacy policies, or practices of any third-party sites or services.</p>
+            <p>We use the following third-party services:</p>
+            <ul>
+                <li><strong>FormSubmit:</strong> For processing contact form submissions</li>
+                <li><strong>Google Fonts:</strong> For typography</li>
+                <li><strong>Vercel:</strong> For website hosting</li>
+            </ul>
+        </section>
+        
+        <section class="content-section">
+            <h2 class="section-title">Data Security</h2>
+            <p>We use administrative, technical, and physical security measures to help protect your personal information. While we have taken reasonable steps to secure the personal information you provide to us, please be aware that despite our efforts, no security measures are perfect or impenetrable.</p>
+        </section>
+        
+        <section class="content-section">
+            <h2 class="section-title">Data Retention</h2>
+            <p>We will retain your information only for as long as necessary to fulfill the purposes outlined in this Privacy Policy, unless a longer retention period is required or permitted by law.</p>
+        </section>
+        
+        <section class="content-section">
+            <h2 class="section-title">Your Rights</h2>
+            <p>Depending on your location, you may have certain rights regarding your personal information:</p>
+            <ul>
+                <li>The right to access your personal data</li>
+                <li>The right to correct inaccurate data</li>
+                <li>The right to request deletion of your data</li>
+                <li>The right to restrict processing</li>
+                <li>The right to data portability</li>
+                <li>The right to object to processing</li>
+            </ul>
+        </section>
+        
+        <section class="content-section">
+            <h2 class="section-title">Children's Privacy</h2>
+            <p>Our website is not intended for children under 13 years of age. We do not knowingly collect personal information from children under 13. If you are a parent or guardian and believe your child has provided us with personal information, please contact us.</p>
+        </section>
+        
+        <section class="content-section">
+            <h2 class="section-title">Changes to This Policy</h2>
+            <p>We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last Updated" date.</p>
+            <p>You are advised to review this Privacy Policy periodically for any changes.</p>
+        </section>
+        
+        <div class="contact-box">
+            <h3>📧 Contact Us About Privacy</h3>
+            <p>If you have any questions about this Privacy Policy or our data practices, please contact us:</p>
+            <p><strong>Email:</strong> <a href="mailto:nir@noartgallery.com">nir@noartgallery.com</a></p>
+            <p><strong>Website:</strong> <a href="https://noartgallery.com">noartgallery.com</a></p>
+        </div>
+        
+        <footer class="footer-mini">
+            <a href="index.html">🦎 No Art Gallery</a>
+        </footer>
+    </div>
+</body>
+</html>
