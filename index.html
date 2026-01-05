@@ -56,8 +56,11 @@
         .cinematic-dramatic { padding: 4rem 2rem; background: linear-gradient(180deg, transparent 0%, rgba(10, 31, 26, 0.6) 30%, rgba(10, 31, 26, 0.7) 50%, rgba(10, 31, 26, 0.6) 70%, transparent 100%); position: relative; overflow: hidden; text-align: center; }
         .cinematic-dramatic::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(ellipse at center, rgba(255, 140, 0, 0.05) 0%, transparent 70%); animation: mist-pulse 8s ease-in-out infinite; }
         @keyframes mist-pulse { 0%, 100% { opacity: 0.3; } 50% { opacity: 0.7; } }
-        .cinematic-dramatic .main-text { font-family: 'Cinzel', serif; font-size: clamp(1.3rem, 4vw, 2rem); letter-spacing: 0.12em; color: var(--gold-light); text-shadow: 0 0 40px rgba(255, 215, 0, 0.3); margin-bottom: 0.8rem; position: relative; z-index: 2; }
-        .cinematic-dramatic .sub-text { font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-style: italic; color: rgba(245, 245, 220, 0.5); position: relative; z-index: 2; }
+        .cinematic-dramatic .main-text { font-family: 'Cinzel', serif; font-size: clamp(1.3rem, 4vw, 2rem); letter-spacing: 0.12em; color: var(--gold-light); text-shadow: 0 0 40px rgba(255, 215, 0, 0.3); margin-bottom: 0.8rem; position: relative; z-index: 2; opacity: 0; transform: translateY(20px); transition: none; }
+        .cinematic-dramatic .sub-text { font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-style: italic; color: rgba(245, 245, 220, 0.5); position: relative; z-index: 2; opacity: 0; transform: translateY(20px); transition: none; }
+        .cinematic-dramatic.visible .main-text { animation: elegantReveal 1.8s ease-out forwards; }
+        .cinematic-dramatic.visible .sub-text { animation: elegantReveal 1.8s ease-out 0.5s forwards; }
+        @keyframes elegantReveal { 0% { opacity: 0; transform: translateY(20px); } 100% { opacity: 1; transform: translateY(0); } }
         
         /* HERO */
         .hero { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative; padding: 2rem; }
@@ -72,7 +75,7 @@
         .main-slogan { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.2rem, 3.5vw, 2rem); font-style: italic; text-align: center; opacity: 0; animation: fade-up 1.5s ease-out 0.8s forwards; }
         .slogan-line-1 { color: var(--gold-light); }
         .slogan-line-2 { color: var(--cream); opacity: 0.8; }
-        .tagline { font-size: 0.85rem; font-weight: 300; letter-spacing: 0.4em; text-transform: uppercase; color: rgba(245, 245, 220, 0.5); margin-top: 1rem; opacity: 0; animation: fade-up 1.5s ease-out 1.3s forwards; }
+        .tagline { font-size: 0.85rem; font-weight: 300; letter-spacing: 0.4em; text-transform: uppercase; color: rgba(245, 245, 220, 0.5); margin-top: 2rem; margin-bottom: 2.5rem; opacity: 0; animation: fade-up 1.5s ease-out 1.3s forwards; }
         .tagline-sub { font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-style: italic; color: rgba(245, 245, 220, 0.6); margin-bottom: 3rem; opacity: 0; animation: fade-up 1.5s ease-out 1.6s forwards; }
         @keyframes fade-up { 0% { opacity: 0; transform: translateY(20px); } 100% { opacity: 1; transform: translateY(0); } }
         .enter-btn { padding: 1.2rem 3.5rem; font-family: 'Cinzel', serif; font-size: 1rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold-light); background: rgba(10, 31, 26, 0.6); border: 1px solid var(--gold-dark); cursor: pointer; transition: all 0.5s ease; opacity: 0; animation: fade-up 1.5s ease-out 1.8s forwards; text-decoration: none; backdrop-filter: blur(5px); }
@@ -456,9 +459,7 @@
     <section class="hero" id="home">
         <div class="logo-container"><span class="crown">👑</span><span class="iguana-logo">🦎</span></div>
         <h1 class="main-title">NO ART GALLERY</h1>
-        <div class="main-slogan"><div class="slogan-line-1">From stories to living worlds.</div><div class="slogan-line-2">From worlds to real connection.</div></div>
         <p class="tagline">Not made to be seen. Made to be entered.</p>
-        <p class="tagline-sub">This is where stories become worlds.</p>
         <a href="#worlds" class="enter-btn">Enter The Experience</a>
         <div class="scroll-indicator"><span class="scroll-text">Discover</span><div class="scroll-arrow"></div></div>
     </section>
@@ -647,6 +648,19 @@
                 requestAnimationFrame(animation);
             });
         });
+        
+        // Elegant Fade-in on Scroll for bottom quote
+        const cinematicSection = document.querySelector('.cinematic-dramatic');
+        if (cinematicSection) {
+            const fadeObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.3 });
+            fadeObserver.observe(cinematicSection);
+        }
         
         // Modal functions
         function openContactModal() {
