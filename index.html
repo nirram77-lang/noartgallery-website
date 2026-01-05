@@ -219,6 +219,7 @@
         .leaf { position: fixed; font-size: 1.5rem; opacity: 0.18; pointer-events: none; animation: leaf-sway 10s ease-in-out infinite; z-index: 2; }
         .leaf-1 { top: 8%; left: 4%; } .leaf-2 { top: 25%; right: 6%; animation-delay: 2s; } .leaf-3 { top: 55%; left: 3%; animation-delay: 4s; } .leaf-4 { top: 75%; right: 4%; animation-delay: 6s; }
         @keyframes leaf-sway { 0%, 100% { transform: rotate(-5deg) translateY(0); } 50% { transform: rotate(5deg) translateY(-10px); } }
+        @keyframes fadeInUp { 0% { opacity: 0; transform: translateY(30px); } 100% { opacity: 1; transform: translateY(0); } }
         
         /* Iguana guide */
         .iguana-guide { position: fixed; bottom: 20px; right: 20px; z-index: 1000; cursor: pointer; }
@@ -452,19 +453,22 @@
         <div class="iguana-tooltip">"In the jungle, the best connections happen when you stop searching and start being present."</div>
     </div>
 
-    <!-- HERO -->
+    <!-- HERO - MINIMALIST GATEWAY -->
     <section class="hero" id="home">
         <div class="logo-container"><span class="crown">👑</span><span class="iguana-logo">🦎</span></div>
         <h1 class="main-title">NO ART GALLERY</h1>
-        <div class="main-slogan"><div class="slogan-line-1">From stories to living worlds.</div><div class="slogan-line-2">From worlds to real connection.</div></div>
         <p class="tagline">Not made to be seen. Made to be entered.</p>
-        <p class="tagline-sub">This is where stories become worlds.</p>
         <a href="#worlds" class="enter-btn">Enter The Experience</a>
         <div class="scroll-indicator"><span class="scroll-text">Discover</span><div class="scroll-arrow"></div></div>
     </section>
 
     <!-- WORLDS -->
     <section class="worlds-section" id="worlds">
+        <!-- Revealed after entering -->
+        <div class="reveal-quote" style="text-align: center; padding: 2rem 1rem 0; animation: fadeInUp 1s ease;">
+            <p style="font-family: 'Cormorant Garamond', serif; font-size: clamp(1.2rem, 3vw, 1.6rem); font-style: italic; color: var(--gold-light); margin-bottom: 0.5rem;">From stories to living worlds.</p>
+            <p style="font-family: 'Cormorant Garamond', serif; font-size: clamp(1.2rem, 3vw, 1.6rem); font-style: italic; color: rgba(255, 215, 0, 0.7);">From worlds to real connection.</p>
+        </div>
         <div class="section-header">
             <h2 class="section-title">Choose a World</h2>
             <p class="section-subtitle">Step Inside</p>
@@ -564,9 +568,9 @@
         <!-- Contact Info -->
         <div class="footer-contact">
             <p class="footer-contact-title">Get In Touch</p>
-            <a href="mailto:nir@noartgallery.com" class="footer-email">
+            <a href="/cdn-cgi/l/email-protection#1f71766d5f71707e6d6b787e73737a6d66317c7072" class="footer-email">
                 <span class="footer-email-icon">✉️</span>
-                <span>nir@noartgallery.com</span>
+                <span><span class="__cf_email__" data-cfemail="89e7e0fbc9e7e6e8fbfdeee8e5e5ecfbf0a7eae6e4">[email&#160;protected]</span></span>
             </a>
         </div>
         
@@ -620,7 +624,7 @@
         </div>
     </div>
     
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor=>{anchor.addEventListener('click',function(e){e.preventDefault();document.querySelector(this.getAttribute('href')).scrollIntoView({behavior:'smooth'});});});
         
@@ -635,12 +639,4 @@
         }
         // Close on overlay click
         document.getElementById('contactModal').addEventListener('click', function(e) {
-            if (e.target === this) closeContactModal();
-        });
-        // Close on Escape key
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') closeContactModal();
-        });
-    </script>
-</body>
-</html>
+            
