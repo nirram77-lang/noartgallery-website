@@ -132,6 +132,16 @@
         .tree-quote-container { text-align: center; padding: 2rem; }
         .tree-quote-main { font-family: 'Cinzel', serif; font-size: clamp(1.1rem, 3vw, 1.6rem); letter-spacing: 0.08em; color: var(--gold-light); margin-bottom: 0.4rem; text-shadow: 0 0 30px rgba(255, 215, 0, 0.3); }
         .tree-quote-sub { font-family: 'Cormorant Garamond', serif; font-size: 0.95rem; font-style: italic; color: rgba(245, 245, 220, 0.5); }
+        .tree-quote-anchor { font-family: 'Raleway', sans-serif; font-size: clamp(0.85rem, 2vw, 1rem); font-weight: 300; letter-spacing: 0.05em; color: rgba(245, 245, 220, 0.6); margin-top: 1rem; margin-bottom: 0.5rem; }
+        .tree-quote-whisper { font-family: 'Cormorant Garamond', serif; font-size: 0.9rem; font-style: italic; letter-spacing: 0.12em; color: rgba(255, 215, 0, 0.4); margin-top: 1.5rem; }
+        
+        /* Elegant Fade-in Animation */
+        .fade-reveal { opacity: 0; transform: translateY(12px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+        .fade-reveal.visible { opacity: 1; transform: translateY(0); }
+        .fade-reveal[data-delay="1"] { transition-delay: 0.15s; }
+        .fade-reveal[data-delay="2"] { transition-delay: 0.35s; }
+        .fade-reveal[data-delay="3"] { transition-delay: 0.55s; }
+        .fade-reveal[data-delay="4"] { transition-delay: 0.75s; }
         
         /* Creator */
         .creator-section { padding: 2rem 2rem 2rem; }
@@ -508,15 +518,17 @@
             <div class="tree-icon float-5" style="left: 95%; top: 38%;"><a href="https://gocio.org" target="_blank"><img src="data:image/png;base64,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" alt="CIO"><div class="icon-label">Architect</div></a></div>
         </div>
         
-        <div class="tree-quote-container">
-            <p class="tree-quote-main">One story. Many roots. Infinite outcomes.</p>
-            <p class="tree-quote-sub">This wasn't designed. It grew.</p>
+        <div class="tree-quote-container" id="quote-section">
+            <p class="tree-quote-main fade-reveal">One story. Many roots. Infinite outcomes.</p>
+            <p class="tree-quote-anchor fade-reveal" data-delay="1">A living ecosystem of stories, systems, and human connection.</p>
+            <p class="tree-quote-sub fade-reveal" data-delay="2">This wasn't designed. It grew — from chaos, curiosity, and connection.</p>
+            <p class="tree-quote-whisper fade-reveal" data-delay="3">Follow the roots. See where they lead.</p>
         </div>
     </section>
     
     <div class="cinematic-separator">
         <div class="line"></div>
-        <p class="whisper">Built to be felt. Not just read.</p>
+        <p class="whisper fade-reveal" data-delay="4">Built to be experienced — not explained.</p>
     </div>
 
     <!-- CREATOR -->
@@ -657,4 +669,27 @@
         }
         // Close on overlay click
         document.getElementById('contactModal').addEventListener('click', function(e) {
-            
+                        if (e.target === this) closeContactModal();
+        });
+        // Close on Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeContactModal();
+        });
+        
+        // Elegant Fade-in on Scroll - Intersection Observer
+        const fadeElements = document.querySelectorAll('.fade-reveal');
+        const fadeObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.2,
+            rootMargin: '0px 0px -50px 0px'
+        });
+        
+        fadeElements.forEach(el => fadeObserver.observe(el));
+    </script>
+</body>
+</html>
