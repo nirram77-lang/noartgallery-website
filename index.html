@@ -145,40 +145,40 @@
         .fade-reveal[data-delay="4"] { transition-delay: 0.75s; }
         
         /* Creator */
-        .creator-section { padding: 2rem 2rem 2rem; }
+        .creator-section { padding: 1.5rem 2rem 1.5rem; }
         .creator-container { max-width: 650px; margin: 0 auto; text-align: center; }
-        .creator-symbol { font-size: 2rem; margin-bottom: 0.6rem; opacity: 0.7; animation: gear-spin 20s linear infinite; }
+        .creator-symbol { font-size: 1.5rem; margin-bottom: 0.4rem; opacity: 0.5; animation: gear-spin 20s linear infinite; }
         @keyframes gear-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-        .creator-intro { font-family: 'Cinzel', serif; font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(255, 215, 0, 0.5); margin-bottom: 0.5rem; }
-        .creator-name { font-family: 'Cinzel', serif; font-size: clamp(1.5rem, 4vw, 2rem); letter-spacing: 0.15em; color: var(--gold-light); margin-bottom: 1rem; }
-        .creator-description { font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-style: italic; line-height: 1.8; color: rgba(245, 245, 220, 0.7); }
-        .creator-highlight { color: var(--gold-light); }
+        .creator-intro { font-family: 'Cinzel', serif; font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(255, 215, 0, 0.4); margin-bottom: 0.4rem; }
+        .creator-name { font-family: 'Cinzel', serif; font-size: clamp(1.2rem, 3vw, 1.5rem); letter-spacing: 0.15em; color: var(--gold-light); margin-bottom: 0.8rem; opacity: 0.9; }
+        .creator-description { font-family: 'Cormorant Garamond', serif; font-size: 0.9rem; font-style: italic; line-height: 1.7; color: rgba(245, 245, 220, 0.55); }
+        .creator-highlight { color: rgba(255, 215, 0, 0.7); }
         
         /* ===== CONVERSATION CTA SECTION ===== */
         .conversation-section {
             text-align: center;
-            padding: 4rem 2rem;
-            background: linear-gradient(180deg, transparent, rgba(10, 31, 26, 0.5), transparent);
+            padding: 2.5rem 2rem;
+            background: linear-gradient(180deg, transparent, rgba(10, 31, 26, 0.3), transparent);
         }
         .conversation-text {
             font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(1.3rem, 3.5vw, 1.8rem);
+            font-size: clamp(1.1rem, 3vw, 1.4rem);
             font-style: italic;
             letter-spacing: 0.08em;
-            color: rgba(255, 215, 0, 0.7);
-            margin-bottom: 1.5rem;
+            color: rgba(255, 215, 0, 0.5);
+            margin-bottom: 1.2rem;
         }
         .conversation-btn {
             display: inline-block;
             font-family: 'Cormorant Garamond', serif;
-            font-size: 1.1rem;
+            font-size: 0.95rem;
             font-style: italic;
-            color: var(--gold-light);
+            color: rgba(255, 215, 0, 0.7);
             text-decoration: none;
-            padding: 0.8rem 2rem;
-            border: 1px solid rgba(255, 215, 0, 0.4);
+            padding: 0.6rem 1.5rem;
+            border: 1px solid rgba(255, 215, 0, 0.25);
             border-radius: 30px;
-            background: rgba(255, 215, 0, 0.08);
+            background: rgba(255, 215, 0, 0.05);
             cursor: pointer;
             transition: all 0.4s ease;
             position: relative;
@@ -189,15 +189,16 @@
             position: absolute;
             top: 0; left: -100%;
             width: 100%; height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.2), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.15), transparent);
             transition: left 0.5s ease;
         }
         .conversation-btn:hover::before { left: 100%; }
         .conversation-btn:hover {
-            background: rgba(255, 215, 0, 0.15);
-            border-color: var(--gold-light);
-            box-shadow: 0 0 30px rgba(255, 215, 0, 0.2);
+            background: rgba(255, 215, 0, 0.1);
+            border-color: rgba(255, 215, 0, 0.5);
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.15);
             transform: translateY(-2px);
+            color: var(--gold-light);
         }
         .conversation-btn .arrow {
             margin-left: 0.5rem;
@@ -218,11 +219,11 @@
         .eco-item:hover .eco-tooltip { opacity: 1; }
         
         /* ===== FOOTER - BRONZE PREMIUM ===== */
-        .footer { padding: 3rem 2rem 2rem; text-align: center; background: linear-gradient(180deg, transparent, rgba(10, 31, 26, 0.7)); border-top: 1px solid rgba(205, 127, 50, 0.3); }
-        .footer-brand { font-family: 'Cinzel', serif; font-size: clamp(1.5rem, 4vw, 2rem); letter-spacing: 0.25em; background: linear-gradient(135deg, var(--bronze-light) 0%, var(--bronze) 50%, var(--bronze-light) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 0.3rem; filter: drop-shadow(0 0 20px rgba(205, 127, 50, 0.3)); }
-        .footer-url { font-family: 'Raleway', sans-serif; font-size: 0.8rem; letter-spacing: 0.3em; color: var(--bronze); margin-bottom: 1.5rem; }
-        .footer-slogan { font-family: 'Cormorant Garamond', serif; font-style: italic; color: rgba(245, 245, 220, 0.5); margin-bottom: 1.5rem; font-size: 0.95rem; }
-        .footer-signals { display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+        .footer { padding: 2rem 2rem 1.5rem; text-align: center; background: linear-gradient(180deg, transparent, rgba(10, 31, 26, 0.5)); border-top: 1px solid rgba(205, 127, 50, 0.2); }
+        .footer-legal { display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin-bottom: 1rem; }
+        .footer-legal a { font-family: 'Raleway', sans-serif; font-size: 0.7rem; letter-spacing: 0.1em; color: rgba(205, 127, 50, 0.5); text-decoration: none; transition: all 0.3s ease; padding: 0.3rem 0; border-bottom: 1px solid transparent; }
+        .footer-legal a:hover { color: var(--bronze-light); border-bottom-color: var(--bronze-light); }
+        .copyright { font-family: 'Raleway', sans-serif; font-size: 0.65rem; letter-spacing: 0.08em; color: rgba(205, 127, 50, 0.35); }
         .signal { font-family: 'Cormorant Garamond', serif; font-size: 0.7rem; font-style: italic; color: rgba(245, 245, 220, 0.35); letter-spacing: 0.05em; }
         .copyright { font-size: 0.6rem; color: rgba(245, 245, 220, 0.3); letter-spacing: 0.1em; }
         
@@ -566,34 +567,13 @@
         </div>
     </section>
 
-    <!-- FOOTER - BRONZE PREMIUM -->
+    <!-- FOOTER - MINIMAL ELEGANT -->
     <footer class="footer">
-        <div class="footer-brand">🦎 NO ART GALLERY</div>
-        <div class="footer-url">NOARTGALLERY.COM</div>
-        <p class="footer-slogan">Stories don't end. They evolve.</p>
-        
-        <!-- Contact Info -->
-        <div class="footer-contact">
-            <p class="footer-contact-title">Get In Touch</p>
-            <a href="/cdn-cgi/l/email-protection#2c42455e6c42434d5e584b4d4040495e55024f4341" class="footer-email">
-                <span class="footer-email-icon">✉️</span>
-                <span><span class="__cf_email__" data-cfemail="dcb2b5ae9cb2b3bdaea8bbbdb0b0b9aea5f2bfb3b1">[email&#160;protected]</span></span>
-            </a>
-        </div>
-        
         <!-- Legal Links -->
         <div class="footer-legal">
             <a href="accessibility.html">Accessibility</a>
             <a href="privacy.html">Privacy Policy</a>
             <a href="terms.html">Terms of Service</a>
-        </div>
-        
-        <div class="footer-signals">
-            <span class="signal">Some projects are public. Others are still growing.</span>
-            <span class="signal">•</span>
-            <span class="signal">Not everything here is for everyone.</span>
-            <span class="signal">•</span>
-            <span class="signal">If something resonates, follow it.</span>
         </div>
         
         <p class="copyright">© 2025 No Art Gallery. All Rights Reserved.</p>
