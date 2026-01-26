@@ -442,128 +442,170 @@
         }
         .accessibility-btn:hover::after { opacity: 1; }
         
-        /* SOS CLICK FLOATING BUTTON - HOLLYWOOD EMERGENCY STYLE */
+        /* ═══════════════════════════════════════════════════════════════
+           SOS CLICK - BIG HOLLYWOOD DRAGGABLE BUTTON
+           Size: 100px | Draggable | Impressive Glow
+           ═══════════════════════════════════════════════════════════════ */
         .sos-floating-btn {
             position: fixed;
-            bottom: 100px;
-            right: 20px;
-            z-index: 1000;
-            width: 75px;
-            height: 75px;
+            bottom: 140px;
+            right: 30px;
+            z-index: 1001;
+            width: 100px;
+            height: 100px;
             border-radius: 50%;
-            background: radial-gradient(circle at 30% 30%, #2a3f5f 0%, #1a2d47 30%, #0d1829 70%, #0a1520 100%);
-            border: 3px solid;
-            border-color: #FF8C00;
+            /* Solid dark blue background - matches the logo */
+            background: radial-gradient(circle at 35% 35%, 
+                #2a3f5f 0%, 
+                #1a2d47 40%, 
+                #0d1829 80%, 
+                #080f18 100%);
+            border: 4px solid #FF8C00;
             box-shadow: 
-                0 0 25px rgba(255, 140, 0, 0.5),
-                0 0 50px rgba(255, 140, 0, 0.25),
-                0 6px 20px rgba(0, 0, 0, 0.5),
-                inset 0 -3px 10px rgba(0, 0, 0, 0.4),
-                inset 0 3px 10px rgba(255, 255, 255, 0.1);
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                0 0 40px rgba(255, 140, 0, 0.7),
+                0 0 80px rgba(255, 140, 0, 0.4),
+                0 0 120px rgba(255, 140, 0, 0.2),
+                0 10px 40px rgba(0, 0, 0, 0.6),
+                inset 0 2px 10px rgba(255, 200, 100, 0.2),
+                inset 0 -5px 15px rgba(0, 0, 0, 0.4);
+            cursor: grab;
+            transition: box-shadow 0.3s ease, border-color 0.3s ease;
             display: flex;
             align-items: center;
             justify-content: center;
             text-decoration: none;
             overflow: hidden;
-            animation: sos-pulse 2s ease-in-out infinite;
-            /* Hidden initially - appears on scroll */
+            animation: sos-mega-pulse 2.5s ease-in-out infinite;
+            /* Hidden initially */
             opacity: 0;
             visibility: hidden;
-            transform: translateY(20px);
+            user-select: none;
+            touch-action: none;
         }
         .sos-floating-btn.visible {
             opacity: 1;
             visibility: visible;
-            transform: translateY(0);
         }
+        .sos-floating-btn.dragging {
+            cursor: grabbing;
+            transform: scale(1.08);
+            border-color: #FFD700;
+            box-shadow: 
+                0 0 60px rgba(255, 140, 0, 0.9),
+                0 0 120px rgba(255, 140, 0, 0.5),
+                0 0 180px rgba(255, 140, 0, 0.3),
+                0 20px 60px rgba(0, 0, 0, 0.7);
+            animation: none;
+        }
+        .sos-floating-btn img {
+            width: 75%;
+            height: 75%;
+            object-fit: contain;
+            border-radius: 50%;
+            pointer-events: none;
+            filter: 
+                drop-shadow(0 0 8px rgba(255, 140, 0, 0.8)) 
+                drop-shadow(0 0 15px rgba(255, 100, 0, 0.5))
+                drop-shadow(0 0 25px rgba(255, 80, 0, 0.3));
+        }
+        .sos-floating-btn:hover {
+            border-color: #FFD700;
+            box-shadow: 
+                0 0 50px rgba(255, 140, 0, 0.9),
+                0 0 100px rgba(255, 140, 0, 0.5),
+                0 0 150px rgba(255, 140, 0, 0.3),
+                0 15px 50px rgba(0, 0, 0, 0.7),
+                inset 0 2px 10px rgba(255, 200, 100, 0.3),
+                inset 0 -5px 15px rgba(0, 0, 0, 0.4);
+        }
+        .sos-floating-btn:active:not(.dragging) {
+            transform: scale(0.95);
+            box-shadow: 
+                0 0 30px rgba(255, 140, 0, 1),
+                0 0 60px rgba(255, 140, 0, 0.6),
+                0 5px 20px rgba(0, 0, 0, 0.8),
+                inset 0 5px 20px rgba(0, 0, 0, 0.5);
+        }
+        
+        /* Outer glowing ring animation */
         .sos-floating-btn::before {
             content: '';
             position: absolute;
-            top: -4px;
-            left: -4px;
-            right: -4px;
-            bottom: -4px;
+            top: -12px;
+            left: -12px;
+            right: -12px;
+            bottom: -12px;
             border-radius: 50%;
-            background: conic-gradient(from 0deg, transparent 0%, rgba(255, 140, 0, 0.6) 25%, transparent 50%, rgba(255, 215, 0, 0.4) 75%, transparent 100%);
-            animation: sos-ring-rotate 4s linear infinite;
-            opacity: 0.7;
+            border: 3px solid rgba(255, 140, 0, 0.4);
+            animation: sos-ring-expand 2.5s ease-in-out infinite;
+            pointer-events: none;
         }
-        .sos-floating-btn img {
-            width: 90%;
-            height: 90%;
-            object-fit: contain;
-            border-radius: 50%;
-            position: relative;
-            z-index: 2;
-            filter: drop-shadow(0 0 10px rgba(255, 140, 0, 0.8)) drop-shadow(0 0 20px rgba(255, 100, 0, 0.4));
-        }
-        .sos-floating-btn:hover {
-            transform: scale(1.12);
-            border-color: #FFD700;
-            box-shadow: 
-                0 0 40px rgba(255, 140, 0, 0.7),
-                0 0 80px rgba(255, 140, 0, 0.35),
-                0 8px 30px rgba(0, 0, 0, 0.6),
-                inset 0 -3px 10px rgba(0, 0, 0, 0.4),
-                inset 0 3px 10px rgba(255, 255, 255, 0.15);
-        }
-        .sos-floating-btn.visible:hover {
-            transform: scale(1.12);
-        }
-        .sos-floating-btn:active {
-            transform: scale(0.95) !important;
-            box-shadow: 
-                0 0 20px rgba(255, 140, 0, 0.9),
-                0 0 40px rgba(255, 140, 0, 0.5),
-                0 2px 10px rgba(0, 0, 0, 0.6),
-                inset 0 3px 15px rgba(0, 0, 0, 0.5);
-            transition: all 0.1s ease;
-        }
+        
+        /* Second outer ring */
         .sos-floating-btn::after {
-            content: 'SOS Click - Emergency App';
+            content: '';
             position: absolute;
-            right: 85px;
-            background: linear-gradient(135deg, rgba(13, 24, 41, 0.98) 0%, rgba(26, 45, 71, 0.98) 100%);
-            border: 2px solid rgba(255, 140, 0, 0.6);
+            top: -20px;
+            left: -20px;
+            right: -20px;
+            bottom: -20px;
+            border-radius: 50%;
+            border: 2px solid rgba(255, 140, 0, 0.2);
+            animation: sos-ring-expand 2.5s ease-in-out infinite 0.3s;
+            pointer-events: none;
+        }
+        
+        /* Tooltip on hover - positioned above */
+        .sos-tooltip {
+            position: fixed;
+            background: linear-gradient(135deg, #0d1829 0%, #1a2d47 100%);
+            border: 2px solid #FF8C00;
             border-radius: 12px;
-            padding: 0.7rem 1rem;
+            padding: 10px 16px;
             font-family: 'Raleway', sans-serif;
-            font-size: 0.75rem;
-            font-weight: 600;
-            letter-spacing: 0.08em;
+            font-size: 0.9rem;
+            font-weight: 700;
             color: #FF8C00;
             white-space: nowrap;
             opacity: 0;
             pointer-events: none;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(15px);
-            box-shadow: 0 8px 32px rgba(255, 140, 0, 0.25), 0 4px 15px rgba(0, 0, 0, 0.4);
+            transition: opacity 0.3s ease;
+            box-shadow: 0 8px 30px rgba(255, 140, 0, 0.3), 0 4px 15px rgba(0, 0, 0, 0.5);
+            z-index: 1002;
         }
-        .sos-floating-btn:hover::after { opacity: 1; }
+        .sos-tooltip.visible {
+            opacity: 1;
+        }
         
-        @keyframes sos-pulse {
+        @keyframes sos-mega-pulse {
             0%, 100% { 
                 box-shadow: 
-                    0 0 25px rgba(255, 140, 0, 0.5),
-                    0 0 50px rgba(255, 140, 0, 0.25),
-                    0 6px 20px rgba(0, 0, 0, 0.5),
-                    inset 0 -3px 10px rgba(0, 0, 0, 0.4),
-                    inset 0 3px 10px rgba(255, 255, 255, 0.1);
+                    0 0 40px rgba(255, 140, 0, 0.7),
+                    0 0 80px rgba(255, 140, 0, 0.4),
+                    0 0 120px rgba(255, 140, 0, 0.2),
+                    0 10px 40px rgba(0, 0, 0, 0.6),
+                    inset 0 2px 10px rgba(255, 200, 100, 0.2),
+                    inset 0 -5px 15px rgba(0, 0, 0, 0.4);
             }
             50% { 
                 box-shadow: 
-                    0 0 35px rgba(255, 140, 0, 0.7),
-                    0 0 70px rgba(255, 140, 0, 0.35),
-                    0 6px 20px rgba(0, 0, 0, 0.5),
-                    inset 0 -3px 10px rgba(0, 0, 0, 0.4),
-                    inset 0 3px 10px rgba(255, 255, 255, 0.1);
+                    0 0 60px rgba(255, 140, 0, 0.9),
+                    0 0 100px rgba(255, 140, 0, 0.5),
+                    0 0 150px rgba(255, 140, 0, 0.3),
+                    0 10px 40px rgba(0, 0, 0, 0.6),
+                    inset 0 2px 10px rgba(255, 200, 100, 0.3),
+                    inset 0 -5px 15px rgba(0, 0, 0, 0.4);
             }
         }
-        @keyframes sos-ring-rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
+        @keyframes sos-ring-expand {
+            0%, 100% { 
+                opacity: 0.6;
+                transform: scale(1);
+            }
+            50% { 
+                opacity: 1;
+                transform: scale(1.08);
+            }
         }
         
         /* Footer Contact & Legal */
@@ -587,9 +629,15 @@
             .footer-legal { gap: 1rem; }
             .accessibility-btn { bottom: 70px; left: 15px; width: 45px; height: 45px; }
             .accessibility-btn svg { width: 22px; height: 22px; }
-            .sos-floating-btn { bottom: 70px; right: 15px; width: 60px; height: 60px; }
-            .sos-floating-btn::after { display: none; }
-            .sos-floating-btn::before { display: none; }
+            .sos-floating-btn { 
+                bottom: 100px; 
+                right: 20px; 
+                width: 80px; 
+                height: 80px; 
+                border-width: 3px;
+            }
+            .sos-floating-btn::before { top: -10px; left: -10px; right: -10px; bottom: -10px; }
+            .sos-floating-btn::after { top: -16px; left: -16px; right: -16px; bottom: -16px; }
             
             /* Mobile Hero Section - Hollywood Style */
             .hero {
@@ -644,9 +692,10 @@
     </a>
     
     <!-- SOS CLICK FLOATING BUTTON - EMERGENCY APP -->
-    <a href="https://sosclick.app" target="_blank" rel="noopener noreferrer" class="sos-floating-btn" aria-label="SOS Click Emergency App">
+    <a href="https://sosclick.app" target="_blank" rel="noopener noreferrer" class="sos-floating-btn" id="sosButton" aria-label="SOS Click Emergency App">
         <img src="sos-click-logo.png" alt="SOS Click">
     </a>
+    <div class="sos-tooltip" id="sosTooltip">🆘 SOS Click - Emergency App</div>
     
     <div class="iguana-guide">
         <span class="iguana-guide-icon">🦎</span>
@@ -875,10 +924,18 @@
         
         fadeElements.forEach(el => fadeObserver.observe(el));
         
-        // SOS Button - Show after scrolling past hero section
-        const sosButton = document.querySelector('.sos-floating-btn');
+        // ═══════════════════════════════════════════════════════════════
+        // SOS BUTTON - VISIBILITY + DRAGGABLE + CLICK HANDLING
+        // ═══════════════════════════════════════════════════════════════
+        const sosButton = document.getElementById('sosButton');
+        const sosTooltip = document.getElementById('sosTooltip');
         const heroSection = document.querySelector('.hero');
         
+        let isDragging = false;
+        let hasMoved = false;
+        let startX, startY, startLeft, startTop;
+        
+        // Show/hide based on scroll
         function checkSosVisibility() {
             if (!heroSection || !sosButton) return;
             const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
@@ -892,7 +949,103 @@
         }
         
         window.addEventListener('scroll', checkSosVisibility);
-        checkSosVisibility(); // Check on load
+        checkSosVisibility();
+        
+        // Tooltip positioning
+        function updateTooltip() {
+            if (!sosButton || !sosTooltip) return;
+            const rect = sosButton.getBoundingClientRect();
+            sosTooltip.style.left = (rect.left + rect.width / 2) + 'px';
+            sosTooltip.style.top = (rect.top - 50) + 'px';
+            sosTooltip.style.transform = 'translateX(-50%)';
+        }
+        
+        sosButton.addEventListener('mouseenter', () => {
+            if (!isDragging) {
+                updateTooltip();
+                sosTooltip.classList.add('visible');
+            }
+        });
+        sosButton.addEventListener('mouseleave', () => {
+            sosTooltip.classList.remove('visible');
+        });
+        
+        // DRAG FUNCTIONALITY
+        function startDrag(e) {
+            e.preventDefault();
+            isDragging = true;
+            hasMoved = false;
+            sosButton.classList.add('dragging');
+            sosTooltip.classList.remove('visible');
+            
+            const touch = e.touches ? e.touches[0] : e;
+            startX = touch.clientX;
+            startY = touch.clientY;
+            
+            const rect = sosButton.getBoundingClientRect();
+            startLeft = rect.left;
+            startTop = rect.top;
+            
+            sosButton.style.transition = 'none';
+        }
+        
+        function doDrag(e) {
+            if (!isDragging) return;
+            e.preventDefault();
+            
+            const touch = e.touches ? e.touches[0] : e;
+            const deltaX = touch.clientX - startX;
+            const deltaY = touch.clientY - startY;
+            
+            if (Math.abs(deltaX) > 5 || Math.abs(deltaY) > 5) {
+                hasMoved = true;
+            }
+            
+            let newLeft = startLeft + deltaX;
+            let newTop = startTop + deltaY;
+            
+            // Boundaries
+            const btnWidth = sosButton.offsetWidth;
+            const btnHeight = sosButton.offsetHeight;
+            newLeft = Math.max(10, Math.min(window.innerWidth - btnWidth - 10, newLeft));
+            newTop = Math.max(10, Math.min(window.innerHeight - btnHeight - 10, newTop));
+            
+            sosButton.style.left = newLeft + 'px';
+            sosButton.style.top = newTop + 'px';
+            sosButton.style.right = 'auto';
+            sosButton.style.bottom = 'auto';
+        }
+        
+        function endDrag(e) {
+            if (!isDragging) return;
+            isDragging = false;
+            sosButton.classList.remove('dragging');
+            sosButton.style.transition = '';
+            
+            // If moved, prevent click navigation
+            if (hasMoved) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
+        }
+        
+        // Prevent click if dragged
+        sosButton.addEventListener('click', (e) => {
+            if (hasMoved) {
+                e.preventDefault();
+                hasMoved = false;
+            }
+        });
+        
+        // Mouse events
+        sosButton.addEventListener('mousedown', startDrag);
+        document.addEventListener('mousemove', doDrag);
+        document.addEventListener('mouseup', endDrag);
+        
+        // Touch events
+        sosButton.addEventListener('touchstart', startDrag, { passive: false });
+        document.addEventListener('touchmove', doDrag, { passive: false });
+        document.addEventListener('touchend', endDrag);
     </script>
 </body>
 </html>
