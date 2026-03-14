@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>שירות ספרי אודיו | No Art Gallery</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='12' fill='%230a0a0a'/><text y='75' x='50' text-anchor='middle' font-size='62' fill='%23c9a84c'>🎙</text></svg>">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Heebo:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -836,7 +837,7 @@
 <div class="cta-section" id="contact">
   <h2 class="cta-title">הספר שלכם מחכה<br><span style="color:var(--gold)">להישמע.</span></h2>
   <p class="cta-sub">לתחילת התהליך — שיחת אפיון קצרה + קובץ Word או PDF של הספר.<br>נחזור אליכם תוך 24 שעות.</p>
-  <a href="mailto:nir@noartgallery.com?subject=בקשה לאודיובוק" class="btn-primary">nir@noartgallery.com</a>
+  <button onclick="openModal()" class="btn-primary" style="border:none; cursor:pointer; font-family:'Heebo',sans-serif;">צרו קשר</button>
 </div>
 
 <!-- FOOTER -->
@@ -853,6 +854,180 @@
   </a>
   <p style="font-size:12px; color: var(--cream-muted); opacity:0.4; margin-top:16px;">© כל הזכויות שמורות לניר רם 2025</p>
 </footer>
+
+<!-- CONTACT MODAL -->
+<style>
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.88);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    backdrop-filter: blur(4px);
+  }
+  .modal-overlay.open { display: flex; }
+  .modal-box {
+    background: #0f0e0a;
+    border: 1px solid rgba(201,168,76,0.5);
+    max-width: 520px;
+    width: 100%;
+    padding: 52px 44px;
+    position: relative;
+    box-shadow: 0 0 80px rgba(201,168,76,0.12);
+    animation: modalIn 0.3s ease;
+  }
+  @keyframes modalIn {
+    from { opacity:0; transform:translateY(20px); }
+    to   { opacity:1; transform:translateY(0); }
+  }
+  .modal-close {
+    position: absolute;
+    top: 18px; left: 20px;
+    background: none; border: none;
+    color: var(--cream-muted);
+    font-size: 20px; cursor: pointer;
+    transition: color 0.2s;
+    line-height: 1;
+  }
+  .modal-close:hover { color: var(--gold); }
+  .modal-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px; color: var(--cream);
+    margin-bottom: 8px;
+  }
+  .modal-sub {
+    font-size: 14px; color: var(--cream-muted);
+    margin-bottom: 32px; line-height: 1.7;
+  }
+  .form-row { margin-bottom: 18px; }
+  .form-row label {
+    display: block;
+    font-size: 11px; letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold); margin-bottom: 7px;
+  }
+  .form-row input,
+  .form-row textarea,
+  .form-row select {
+    width: 100%;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(201,168,76,0.2);
+    color: var(--cream);
+    font-family: 'Heebo', sans-serif;
+    font-size: 15px; font-weight: 300;
+    padding: 12px 14px;
+    outline: none; direction: rtl;
+    transition: border-color 0.2s;
+    border-radius: 0;
+  }
+  .form-row input:focus,
+  .form-row textarea:focus,
+  .form-row select:focus { border-color: var(--gold); }
+  .form-row textarea { resize: vertical; min-height: 90px; }
+  .form-row select option { background: #111; }
+  .form-success {
+    display: none; text-align: center; padding: 32px 0;
+  }
+  .form-success-star {
+    font-size: 40px; color: var(--gold);
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 16px;
+  }
+  .form-success-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px; color: var(--gold); margin-bottom: 8px;
+  }
+  .form-success-sub { font-size: 14px; color: var(--cream-muted); }
+</style>
+
+<div class="modal-overlay" id="contactModal" onclick="if(event.target===this)closeModal()">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div id="formContent">
+      <div class="modal-title">נשמח לשמוע מכם</div>
+      <div class="modal-sub">מלאו את הפרטים — ניצור קשר תוך 24 שעות עם הצעה מותאמת.</div>
+      <form id="contactForm" onsubmit="submitContactForm(event)">
+        <input type="hidden" name="access_key" value="cb80876c-efaa-46de-a5cc-1f9333540811">
+        <input type="hidden" name="subject" value="פנייה חדשה — שירות אודיובוק No Art Gallery">
+        <input type="hidden" name="from_name" value="No Art Gallery Audiobook Service">
+        <div class="form-row">
+          <label>שם מלא *</label>
+          <input type="text" name="name" required placeholder="ישראל ישראלי">
+        </div>
+        <div class="form-row">
+          <label>טלפון נייד *</label>
+          <input type="tel" name="phone" required placeholder="050-0000000">
+        </div>
+        <div class="form-row">
+          <label>כתובת מייל *</label>
+          <input type="email" name="email" required placeholder="your@email.com">
+        </div>
+        <div class="form-row">
+          <label>חבילה מעניינת</label>
+          <select name="package">
+            <option value="">-- בחרו חבילה --</option>
+            <option value="basic">בסיסית — עברית ₪1,500</option>
+            <option value="advanced">מתקדמת — שפה אחת ₪2,500</option>
+            <option value="global">גלובלית — 3 שפות ₪4,500</option>
+            <option value="custom">תמחור מותאם אישית</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label>תיאור הספר / פנייה</label>
+          <textarea name="message" placeholder="ספרו לנו קצת על הספר שלכם — נושא, כמות עמודים, שפות רצויות..."></textarea>
+        </div>
+        <button type="submit" id="submitBtn" class="btn-primary"
+          style="width:100%;text-align:center;cursor:pointer;border:none;font-family:'Heebo',sans-serif;">
+          שלחו פנייה
+        </button>
+      </form>
+    </div>
+    <div class="form-success" id="formSuccess">
+      <div class="form-success-star">✦</div>
+      <div class="form-success-title">הפנייה נשלחה בהצלחה</div>
+      <div class="form-success-sub">ניצור קשר תוך 24 שעות. תודה!</div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function openModal() {
+    document.getElementById('contactModal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal() {
+    document.getElementById('contactModal').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeModal();
+  });
+  async function submitContactForm(e) {
+    e.preventDefault();
+    var btn = document.getElementById('submitBtn');
+    btn.textContent = 'שולח...';
+    btn.disabled = true;
+    try {
+      var res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST', body: new FormData(e.target)
+      });
+      var data = await res.json();
+      if (data.success) {
+        document.getElementById('formContent').style.display = 'none';
+        document.getElementById('formSuccess').style.display = 'block';
+      } else {
+        btn.textContent = 'שגיאה — נסו שוב';
+        btn.disabled = false;
+      }
+    } catch(err) {
+      btn.textContent = 'שגיאה — נסו שוב';
+      btn.disabled = false;
+    }
+  }
+</script>
 
 </body>
 </html>
